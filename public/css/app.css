@@ -1,0 +1,134 @@
+body {
+    font-family: Calibri, sans-serif;
+    background: #f0f7f8;
+    text-align: center;
+}
+
+.nav-list{
+    background: white;
+    box-shadow: 0px 0px 6px #cfd8fc;
+    margin: 0;
+    padding: 0.09rem 0;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-item{
+    list-style: none;
+    margin-right: 1.6rem;
+}
+
+.nav-active {
+    list-style: none;
+    margin-right: 1.6rem;
+    background-color: #04AA6D;
+    padding: 18px 13px;
+  }
+
+.nav-item a {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.nav-active a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.nav-item a:hover{
+    color: #04AA6D;
+}
+
+.nav-item:first-child{
+    margin-right: auto;
+    margin-left: 2rem;
+}
+
+.bodylink:link{
+    color:#04AA6D;
+}
+
+.bodylink:visited{
+    color:crimson;
+}
+
+.teststart {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 500px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.teststart input[type="text"], 
+.teststart select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.teststart button {
+    padding: 10px 10px;
+    font-size: 14px;
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+}
+
+.teststart button:hover {
+    background-color: #45a049; /* Warna saat hover */
+}
+
+
+.teststart button:hover {
+    background-color: #d61010;
+}
+
+.recommending {
+    width: 100%;
+    border-collapse: collapse;
+}
+.recommending, .recommending th, .recommending td {
+    border: 1px solid #ddd;
+}
+.recommending th, .recommending td {
+    padding: 8px;
+    text-align: center;
+}
+
+.recommending-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.recommending-spec {
+    font-size: 14px;
+    color: #4b4848;
+}
+
+.laptoplist {
+    width: 100%;
+    border-collapse: collapse;
+}
+.laptoplist, .laptoplist th, .laptoplist td {
+    border: 1px solid #000000;
+}
+.laptoplist th, .laptoplist td {
+    padding: 8px;
+    text-align: center;
+}
