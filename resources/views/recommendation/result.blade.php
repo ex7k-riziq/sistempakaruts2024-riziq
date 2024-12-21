@@ -25,6 +25,7 @@
     </navbar>
 
     <h1>Hasil Rekomendasi Laptop untuk {{ $name }}</h1>
+    <p>Total Poin Anda: {{ $totalPoints }}</p>
     @if($laptops->isEmpty())
         <p>Tidak ada laptop yang sesuai dengan kriteria Anda.</p>
     @else
