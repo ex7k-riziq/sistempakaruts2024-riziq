@@ -30,6 +30,7 @@
         <label>Anda akan menggunakan laptop untuk apa?</label><br>
         <select name="purpose" required>
             <option disabled selected value> Pilih</option>
+            <option value="apa saja">Apa saja</option>
             <option value="produktivitas">Produktivitas</option>
             <option value="gaming">Gaming</option>
             <option value="kreasi">Kreasi</option>
@@ -38,6 +39,7 @@
         <label>Berapa budget Anda?</label><br>
         <select name="budget" required>
             <option disabled selected value> Pilih</option>
+            <option value="apa saja">Apa saja</option>
             <option value="0-6000000">6 juta dan kebawah</option>
             <option value="7000000-11000000">7 juta sampai 11 juta</option>
             <option value="12000000-16000000">12 juta hingga 16 juta</option>

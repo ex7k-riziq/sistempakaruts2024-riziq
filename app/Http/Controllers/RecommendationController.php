@@ -41,7 +41,7 @@ class RecommendationController extends Controller
     }
 
     public function process(Request $request)
-    {
+{
     if (!$request->session()->has('name')) {
         return redirect('/')->with('error', 'Session expired. Silakan masukkan nama lagi.');
     }
@@ -53,25 +53,47 @@ class RecommendationController extends Controller
 
     $name = $request->session()->get('name');
     $purpose = $request->input('purpose');
-    $budget = explode('-', $request->input('budget'));
+    $budget = $request->input('budget');
+
+    $categoryPoints = [
+        'apa saja' => 0,
+        'produktivitas' => 1,
+        'gaming' => 2,
+        'kreasi' => 3,
+    ];
+
+    $budgetPoints = [
+        'apa saja' => 0,
+        '0-6000000' => 30,
+        '7000000-11000000' => 60,
+        '12000000-16000000' => 90,
+    ];
+
+    $categoryPoint = $categoryPoints[$purpose] ?? 0;
+    $budgetPoint = $budgetPoints[$budget] ?? 0;
+
+    $totalPoints = $categoryPoint + $budgetPoint;
 
     $query = Laptop::query();
 
-    if ($purpose == 'produktivitas') {
-        $query->where('category', 'Produktivitas');
-    } elseif ($purpose == 'gaming') {
-        $query->where('category', 'Gaming');
-    } elseif ($purpose == 'kreasi') {
-        $query->where('category', 'Kreasi');
+    if ($purpose !== 'apa saja') {
+        $query->where('category', ucfirst($purpose));
     }
 
-    $query->where('min_budget', '>=', $budget[0])
-          ->where('max_budget', '<=', $budget[1]);
+    if ($budget !== 'apa saja') {
+        $budgetRange = explode('-', $budget);
+        $query->where('min_budget', '>=', $budgetRange[0])
+              ->where('max_budget', '<=', $budgetRange[1]);
+    }
 
     $laptops = $query->get();
 
-    return view('recommendation.result', compact('laptops', 'name'));
-    }
+    return view('recommendation.result', [
+        'laptops' => $laptops,
+        'name' => $name,
+        'totalPoints' => $totalPoints,
+    ]);
+}
 
 }
 
